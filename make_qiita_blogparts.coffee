@@ -96,12 +96,12 @@ casper.start target_url, ->
   html += "        <td>"
   html += "            <table>"
   html += "                <tr>"
-  html += "                    <td width='60' align='center'>"
-  html += "                        <img src='https://pbs.twimg.com/profile_images/1542801560/Qiita_normal.png'>"
+  html += "                    <td align='center'>"
+  html += "                        <img src='https://pbs.twimg.com/profile_images/1542801560/Qiita_normal.png' width='50'>"
   html += "                    </td>"
-  html += "                    <td>"
-  html += "                        <font color='white'>"
-  html += "                            &nbsp;<a href='http://qiita.com/organizations/yumemi' target='_blank'><font color='white'>ゆめみメンバーのQiita</font></a> 新着投稿"
+  html += "                    <td algin='left'>"
+  html += "                        <font size='2px' color='white'>"
+  html += "                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='http://qiita.com/organizations/yumemi' target='_blank'><font color='white'>ゆめみメンバーのQiita</font></a> 新着投稿！"
   html += "                        </font>"
   html += "                    </td>"
   html += "                </tr>"
@@ -169,15 +169,15 @@ casper.start target_url, ->
   html += "    </tr>"
   html += "</table>"
 
-  #@echo html
+  @echo html
 
   # ----------------------------
   # JavaScript の document.writeで出力
   # ----------------------------
 
-  output = ""
-  output = "document.write(\"" + html + "\");"
-  @echo output
+  #output = ""
+  #output = "document.write(\"" + html + "\");"
+  #@echo output
 
 casper.run ->
   @exit()

@@ -1,21 +1,21 @@
 ### USAGE
 
-Generate a JavaScript file.
+Generate a HTML file.
 
 ```
-$ casperjs make_qiita_blogparts.coffee > qiita-yumemi.js
+$ casperjs make_qiita_blogparts.coffee > qiita-yumemi.html
 ```
 
-Then, edit HTML file.
+Then, include the HTML file.
 
-```:hoge.html
-<script type="text/javascript" src="qiita-yumemi.js" charset="utf-8"></script>
+```
+<iframe src="qiita-yumemi.html" frameborder="0" height="800" width="300" marginheight="0" marginwidth="0" scrolling="yes" allowtransparency="true"></iframe>
 ```
 
 ### DEMO
 
-http://hkusu.github.io/CasperJS_scraping_Qiita/test.html
+http://hkusu.github.io/CasperJS_scraping_Qiita/demo.html
 
 ### NOTE
 
-If you want to update JavaScript file, please use the cron, etc..
+If you want to update HTML file, please use the cron, etc..
