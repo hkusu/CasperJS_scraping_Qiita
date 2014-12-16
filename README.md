@@ -3,7 +3,7 @@
 Generate a HTML file.
 
 ```
-$ casperjs make_qiita_blogparts.coffee > qiita-yumemi.html
+$ casperjs make_qiita_blogparts.coffee > qiita_yumemi.html
 ```
 
 Then, include the HTML file.

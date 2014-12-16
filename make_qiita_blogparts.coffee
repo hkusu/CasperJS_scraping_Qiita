@@ -13,7 +13,7 @@ casper.start target_url, ->
   author_icons = []
 
   author_icons = @evaluate ->
-    items = document.querySelectorAll(".activities article img")
+    items = document.querySelectorAll("article .publicItem_left img")
     Array::map.call items, (e) ->
       e.getAttribute('src')
   #@echo(" - " + author_icons.join("\n - "))
@@ -25,7 +25,7 @@ casper.start target_url, ->
   author_names = []
 
   author_names = @evaluate ->
-    items = document.querySelectorAll(".activities article .header a")
+    items = document.querySelectorAll("article .publicItem_main .publicItem_header a")
     Array::map.call items, (e) ->
       e.text
   #@echo(" - " + author_names.join("\n - "))
@@ -37,7 +37,7 @@ casper.start target_url, ->
   author_urls = []
 
   author_urls = @evaluate ->
-    items = document.querySelectorAll(".activities article .header a")
+    items = document.querySelectorAll("article .publicItem_main .publicItem_header a")
     Array::map.call items, (e) ->
       e.getAttribute('href')
   #@echo(" - " + author_urls.join("\n - "))
@@ -49,17 +49,17 @@ casper.start target_url, ->
   entry_days = []
 
   entry_days = @evaluate ->
-    items = document.querySelectorAll(".activities article .header")
+    items = document.querySelectorAll("article .publicItem_main .publicItem_header")
     Array::map.call items, (e) ->
       e.innerHTML
 
   # 余分なタグを削除
   i = 0
   while i < entry_days.length
-    entry_days[i] = entry_days[i].replace(/[\n\r]/g,"")
-    entry_days[i] = entry_days[i].replace(/\ /g,"")
-    entry_days[i] = entry_days[i].replace(/<strong>.+?<\/strong>/g,"")
+    # innerHTML 内の aタグエリアを削除
+    entry_days[i] = entry_days[i].replace(/<a href=.+?<\/a>/g,"")
     i++
+
   #@echo(" - " + entry_days.join("\n - "))
 
   # ----------------------------
@@ -69,7 +69,7 @@ casper.start target_url, ->
   entry_titles = []
 
   entry_titles = @evaluate ->
-    items = document.querySelectorAll(".activities article .body a[href*=\"/items/\"]")
+    items = document.querySelectorAll("article .publicItem_main .publicItem_body a[href*=\"/items/\"]")
     Array::map.call items, (e) ->
       e.text
   #@echo(" - " + entry_titles.join("\n - "))
@@ -81,7 +81,7 @@ casper.start target_url, ->
   entry_urls = []
 
   entry_urls = @evaluate ->
-    items = document.querySelectorAll(".activities article .body a[href*=\"/items/\"]")
+    items = document.querySelectorAll("article .publicItem_main .publicItem_body a[href*=\"/items/\"]")
     Array::map.call items, (e) ->
       e.getAttribute('href');
   #@echo(" - " + entry_urls.join("\n - "))
@@ -91,7 +91,7 @@ casper.start target_url, ->
   # ----------------------------
 
   html = ""
-  html += "<table style='background-color: #64C914;'>"
+  html += "<table style='background-color: #64C914'>"
   html += "    <tr>"
   html += "        <td>"
   html += "            <table>"
