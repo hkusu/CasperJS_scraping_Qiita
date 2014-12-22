@@ -13,7 +13,7 @@ casper.start target_url, ->
   author_icons = []
 
   author_icons = @evaluate ->
-    items = document.querySelectorAll("article .publicItem_left img")
+    items = document.querySelectorAll("article .tableList_avatarCell img")
     Array::map.call items, (e) ->
       e.getAttribute('src')
   #@echo(" - " + author_icons.join("\n - "))
@@ -21,11 +21,11 @@ casper.start target_url, ->
   # ----------------------------
   # 投稿者名 を取得
   # ----------------------------
-
+  
   author_names = []
 
   author_names = @evaluate ->
-    items = document.querySelectorAll("article .publicItem_main .publicItem_header a")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_header a")
     Array::map.call items, (e) ->
       e.text
   #@echo(" - " + author_names.join("\n - "))
@@ -37,7 +37,7 @@ casper.start target_url, ->
   author_urls = []
 
   author_urls = @evaluate ->
-    items = document.querySelectorAll("article .publicItem_main .publicItem_header a")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_header a")
     Array::map.call items, (e) ->
       e.getAttribute('href')
   #@echo(" - " + author_urls.join("\n - "))
@@ -49,7 +49,7 @@ casper.start target_url, ->
   entry_days = []
 
   entry_days = @evaluate ->
-    items = document.querySelectorAll("article .publicItem_main .publicItem_header")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_header")
     Array::map.call items, (e) ->
       e.innerHTML
 
@@ -69,7 +69,7 @@ casper.start target_url, ->
   entry_titles = []
 
   entry_titles = @evaluate ->
-    items = document.querySelectorAll("article .publicItem_main .publicItem_body a[href*=\"/items/\"]")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_body a[href*=\"/items/\"]")
     Array::map.call items, (e) ->
       e.text
   #@echo(" - " + entry_titles.join("\n - "))
@@ -81,7 +81,7 @@ casper.start target_url, ->
   entry_urls = []
 
   entry_urls = @evaluate ->
-    items = document.querySelectorAll("article .publicItem_main .publicItem_body a[href*=\"/items/\"]")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_body a[href*=\"/items/\"]")
     Array::map.call items, (e) ->
       e.getAttribute('href');
   #@echo(" - " + entry_urls.join("\n - "))
