@@ -25,7 +25,7 @@ casper.start target_url, ->
   author_names = []
 
   author_names = @evaluate ->
-    items = document.querySelectorAll("article .tableList_cell .publicItem_header a")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_status a")
     Array::map.call items, (e) ->
       e.text
   #@echo(" - " + author_names.join("\n - "))
@@ -37,7 +37,7 @@ casper.start target_url, ->
   author_urls = []
 
   author_urls = @evaluate ->
-    items = document.querySelectorAll("article .tableList_cell .publicItem_header a")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_status a")
     Array::map.call items, (e) ->
       e.getAttribute('href')
   #@echo(" - " + author_urls.join("\n - "))
@@ -49,7 +49,7 @@ casper.start target_url, ->
   entry_days = []
 
   entry_days = @evaluate ->
-    items = document.querySelectorAll("article .tableList_cell .publicItem_header")
+    items = document.querySelectorAll("article .tableList_cell .publicItem_status")
     Array::map.call items, (e) ->
       e.innerHTML
 

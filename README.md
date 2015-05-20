@@ -9,7 +9,7 @@ $ casperjs make_qiita_blogparts.coffee > qiita_yumemi.html
 Then, include the HTML file.
 
 ```
-<iframe src="qiita-yumemi.html" frameborder="0" height="800" width="300" marginheight="0" marginwidth="0" scrolling="yes" allowtransparency="true"></iframe>
+<iframe src="qiita_yumemi.html" frameborder="0" height="600" width="300" marginheight="0" marginwidth="0" scrolling="yes" allowtransparency="true"></iframe>
 ```
 
 ### DEMO
